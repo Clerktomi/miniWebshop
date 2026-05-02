@@ -17,3 +17,22 @@ setInterval(() => {
         }
     }
 }, 1000);
+
+const KosarTermekek = document.getElementById("KosarTermekek");
+
+let kosar = localStorage.getItem("kosar");
+
+if(kosar){
+    kosar = JSON.parse(kosar);
+    for (let i = 0; i < kosar.length; i++) {
+        let ujSor = `
+            <tr>
+                    <td>${kosar[i].nev}</td>
+                    <td>${kosar[i].ar}</td>
+                    <td>${kosar[i].db}</td>
+                    <td>${kosar[i].ar*kosar[i].db}</td>
+            </tr>
+        `;     
+        KosarTermekek.innerHTML += ujSor;   
+    }
+}

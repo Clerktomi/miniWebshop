@@ -46,21 +46,34 @@ setInterval(() => {
     }
 }, 1000);
 
-function termekVasarol(id,i){
+function termekVasarol(id, i) {
     let kosar = localStorage.getItem("kosar");
     let termekek = localStorage.getItem("termekek");
-    termekek = JSON.parse(kosar);
-    if(kosar){
-        kosar = JSON.parse(kosar);
-    } else{
-        kosar=[];
+
+    termekek = JSON.parse(termekek);
+    kosar = kosar ? JSON.parse(kosar) : [];
+
+    let szerepel = false;
+
+    for (let y = 0; y < kosar.length; y++) {
+        if (kosar[y].i === i) {
+            kosar[y].db++;
+            szerepel = true;
+            break;
+        }
     }
-    ujtermek = {
-        nev:termekek[i].nev,
-        ar:Number(termekek[i].ar),
-        db:0,
-        leiras: termekek[i].nev
-    };
-    kosar.push(ujtermek);
-    localStorage.setItem("kosar",kosar);
+
+    if (!szerepel) {
+        let ujtermek = {
+            nev: termekek[i].nev,
+            ar: Number(termekek[i].ar),
+            db: 1,
+            leiras: termekek[i].nev,
+            i: i
+        };
+
+        kosar.push(ujtermek);
+    }
+
+    localStorage.setItem("kosar", JSON.stringify(kosar));
 }
