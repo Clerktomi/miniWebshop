@@ -16,10 +16,30 @@
         </div>
         <div class="row d-flex align-items-center justify-content-center">
             <div class="col-6">
-                <input type="text" class="form-control my-3" placeholder="Termék neve:" id="nev">
-                <input type="number" class="form-control my-3" placeholder="Termék ára:" id="ar">
-                <input type="text" class="form-control my-3" placeholder="Termék leírása:" id="leiras">
-                <button class="btn btn-success" id="hozzaad">Hozzáad </button>
+                <form id="hozzaad">
+                    <input type="text" class="form-control my-3" placeholder="Termék neve:" id="nev" required>
+                    <input type="number" class="form-control my-3" placeholder="Termék ára:" id="ar" required>
+                    <input type="text" class="form-control my-3" placeholder="Termék leírása:" id="leiras" required>
+                    <button class="btn btn-success" id="" type="submit">Hozzáad </button>
+                </form>
+            </div>
+        </div>
+        <div class="row my-4">
+            <h4>Elérhető Termékek</h4>
+            <div class="row" id="elerhetoTermekek" style="display: none;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Név</th>
+                            <th>Ár</th>
+                            <th>Leírás</th>
+                            <th>Kezelés</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminTermekek">
+                        
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

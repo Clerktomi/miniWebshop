@@ -8,3 +8,8 @@ body{
     border-radius: 8px;
     color: white;
 }
+
+th, td{
+    border:  1px solid white;
+    text-align: center;
+}

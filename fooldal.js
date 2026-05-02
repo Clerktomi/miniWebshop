@@ -1,6 +1,7 @@
 let termekekList = localStorage.getItem("termekek");
 
 const TermekekDiv = document.getElementById("Termekek");
+const alertP = document.getElementById("alertP");
 
 if(termekekList){
     termekekList = JSON.parse(termekekList);
