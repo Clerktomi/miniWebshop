@@ -7,15 +7,18 @@ if(termekekList){
     termekekList = JSON.parse(termekekList);
     for (let i = 0; i < termekekList.length; i++) {
         let ujDoboz = `
-        <div class="col-4">
-            <div class="doboz p-2">
+    <div class="col-md-4 mb-4 d-flex">
+        <div class="doboz p-3 d-flex flex-column w-100">
                 <h2>${termekekList[i].nev}</h2>
                 <hr>
-                <h4>${termekekList[i].ar}Ft.</h4>
-                <p>${termekekList[i].leiras}</p>
-            </div>
+                <h4>${termekekList[i].ar} Ft</h4>
+                <p class="flex-grow-1">${termekekList[i].leiras}</p>
+                <button class="btn btn-primary mt-auto" id="vasarlas${termekekList[i].i}">
+                    Vásárlás
+                </button>
         </div>
-        `;
+    </div>
+    `;
         TermekekDiv.innerHTML += ujDoboz;
         
     }
@@ -43,7 +46,3 @@ setInterval(() => {
         }
     }
 }, 1000);
-
-setInterval(() => {
-    location.reload();
-}, 20000);

@@ -60,7 +60,7 @@ let termekek = localStorage.getItem("termekek");
     }
 
 function torolGomb(gombID,i){
-    alert(i);
+    // alert(i);
     let termekek = localStorage.getItem("termekek");
     if(termekek){
         termekek = JSON.parse(termekek);
