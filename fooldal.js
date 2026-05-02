@@ -23,6 +23,20 @@ if(termekekList){
     termekekList = [];
 }
 
+let cssFix = document.getElementById("cssFix");
+
+setInterval(() => {
+    let tema = localStorage.getItem("tema");
+    if(tema){
+        if(tema==="vilagos"){
+            cssFix.href="style.css";
+        }
+        else if(tema==="sotet"){
+            cssFix.href="style2.css";
+        }
+    }
+}, 1000);
+
 setInterval(() => {
     location.reload();
 }, 20000);
