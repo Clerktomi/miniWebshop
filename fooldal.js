@@ -7,20 +7,19 @@ if(termekekList){
     termekekList = JSON.parse(termekekList);
     for (let i = 0; i < termekekList.length; i++) {
         let ujDoboz = `
-    <div class="col-md-4 mb-4 d-flex">
-        <div class="doboz p-3 d-flex flex-column w-100">
-                <h2>${termekekList[i].nev}</h2>
-                <hr>
-                <h4>${termekekList[i].ar} Ft</h4>
-                <p class="flex-grow-1">${termekekList[i].leiras}</p>
-                <button class="btn btn-primary mt-auto" id="vasarlas${termekekList[i].i}">
-                    Vásárlás
-                </button>
+        <div class="col-md-4 mb-4 d-flex">
+            <div class="doboz p-3 d-flex flex-column w-100">
+                    <h2>${termekekList[i].nev}</h2>
+                    <hr>
+                    <h4>${termekekList[i].ar} Ft</h4>
+                    <p class="flex-grow-1">${termekekList[i].leiras}</p>
+                    <button class="btn btn-primary mt-auto" id="vasarlas${termekekList[i].i}" onclick="termekVasarol('vasarol${termekekList[i].i}', ${termekekList[i].i})">
+                        Vásárlás
+                    </button>
+            </div>
         </div>
-    </div>
-    `;
+        `;
         TermekekDiv.innerHTML += ujDoboz;
-        
     }
 
 } else{
@@ -46,3 +45,22 @@ setInterval(() => {
         }
     }
 }, 1000);
+
+function termekVasarol(id,i){
+    let kosar = localStorage.getItem("kosar");
+    let termekek = localStorage.getItem("termekek");
+    termekek = JSON.parse(kosar);
+    if(kosar){
+        kosar = JSON.parse(kosar);
+    } else{
+        kosar=[];
+    }
+    ujtermek = {
+        nev:termekek[i].nev,
+        ar:Number(termekek[i].ar),
+        db:0,
+        leiras: termekek[i].nev
+    };
+    kosar.push(ujtermek);
+    localStorage.setItem("kosar",kosar);
+}
