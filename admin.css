@@ -1,0 +1,12 @@
+body{
+    background-image: url(pictures/adminWalp.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+}
+
+td, td{
+    border: 1px solid white;
+}

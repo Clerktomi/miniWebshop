@@ -13,7 +13,7 @@ if(termekekList){
                     <hr>
                     <h4>${termekekList[i].ar} Ft</h4>
                     <p class="flex-grow-1">${termekekList[i].leiras}</p>
-                    <button class="btn btn-primary mt-auto" id="vasarlas${termekekList[i].i}" onclick="termekVasarol('vasarol${termekekList[i].i}', ${termekekList[i].i})">
+                    <button class="btn btn-primary mt-auto w-50" id="vasarlas${termekekList[i].i}" onclick="termekVasarol('vasarol${termekekList[i].i}', ${termekekList[i].i});KosarFrissit()">
                         Vásárlás
                     </button>
             </div>
@@ -80,11 +80,25 @@ function termekVasarol(id, i) {
 
 const TermekekSzama = document.getElementById("TermekekSzama");
 
-let kosar = localStorage.getItem("kosar");
+    let kosar = localStorage.getItem("kosar");
 
-if(kosar){
-    kosar = JSON.parse(kosar);
-    TermekekSzama.textContent = kosar.length;
-} else{
-    TermekekSzama.textContent = 0;
+    if(kosar){
+        kosar = JSON.parse(kosar);
+        TermekekSzama.textContent = kosar.length;
+    }
+
+function KosarFrissit(){
+    const TermekekSzama = document.getElementById("TermekekSzama");
+
+    let kosar = localStorage.getItem("kosar");
+    let oDB = 0;
+    if(kosar){
+        kosar = JSON.parse(kosar);
+        for (let i = 0; i < kosar.length; i++) {
+            oDB+=kosar[i].db;
+        }
+    }
+    TermekekSzama.textContent = oDB;
 }
+
+KosarFrissit();

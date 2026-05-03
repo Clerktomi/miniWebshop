@@ -1,6 +1,11 @@
 body{
     background-color: black;
     color: white;
+    background-image: url(pictures/darkWalp.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 .doboz{
