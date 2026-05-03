@@ -77,3 +77,14 @@ function termekVasarol(id, i) {
 
     localStorage.setItem("kosar", JSON.stringify(kosar));
 }
+
+const TermekekSzama = document.getElementById("TermekekSzama");
+
+let kosar = localStorage.getItem("kosar");
+
+if(kosar){
+    kosar = JSON.parse(kosar);
+    TermekekSzama.textContent = kosar.length;
+} else{
+    TermekekSzama.textContent = 0;
+}

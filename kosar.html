@@ -12,26 +12,32 @@
     
     <div class="container">
         <div class="row">
-            <h2 class="text-center">GamerShop.hu / Kosár</h2>
+            <div class="col-8 d-flex align-items-center justify-content-center">
+                <h2 class="text-center">GamerShop.hu / Kosár</h2>
+            </div>
+            <div class="col-4 d-flex align-items-center justify-content-center">
+                <a href="fooldal.html" class="btn btn-primary">Vissza</a>
+            </div>
         </div>
         <div class="row">
             <p id="kosarAlert">Jelenleg üres a kosara</p>
         </div>
          <div class="row">
-            <div class="col-12">
+            <div class="col-12" id="MainTable" style="display: none;">
                 <table class="w-100">
                     <thead>
                         <tr>
                             <th>Név</th>
                             <th>Ár</th>
                             <th>db</th>
-                            <th>Összesen</th>
+                            <th>Részösszeg</th>
                         </tr>
                     </thead>
                     <tbody id="KosarTermekek">
                 
                     </tbody>
                 </table>
+                <p id="osszFiz"></p>
             </div>
          </div>
     </div>

@@ -42,10 +42,10 @@ let termekek = localStorage.getItem("termekek");
                     <td>
                         <div class="row p-2 g-2">
                             <div class="col-6">
-                                <button class="btn btn-danger w-50" onclick="torolGomb('torol${termekek[i].i}', ${termekek[i].i})">törlés</button>
+                                <button class="btn btn-danger w-10" onclick="torolGomb('torol${termekek[i].i}', ${termekek[i].i})">törlés</button>
                             </div>
                             <div class="col-6">
-                                <button class="btn btn-warning w-50" onclick="modositGomb('modosit${termekek[i].i}', ${termekek[i].i})" id="modosit${termekek[i].i}">Módosít</button>
+                                <button class="btn btn-warning w-10" onclick="modositGomb('modosit${termekek[i].i}', ${termekek[i].i})" id="modosit${termekek[i].i}">Módosít</button>
                             </div>
                         </div>
                     </td>

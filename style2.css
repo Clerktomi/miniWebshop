@@ -13,3 +13,7 @@ th, td{
     border:  1px solid white;
     text-align: center;
 }
+
+.bold{
+    font-weight: bold;
+}
