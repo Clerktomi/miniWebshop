@@ -11,7 +11,7 @@ if(termekekList){
             <div class="doboz p-3 d-flex flex-column w-100">
                     <h2>${termekekList[i].nev}</h2>
                     <hr>
-                    <h4>${termekekList[i].ar} Ft</h4>
+                    <h4>${Number(termekekList[i].ar).toLocaleString('hu-HU')} Ft</h4>
                     <p class="flex-grow-1">${termekekList[i].leiras}</p>
                     <button class="btn btn-primary mt-auto w-50" id="vasarlas${termekekList[i].i}" onclick="termekVasarol('vasarol${termekekList[i].i}', ${termekekList[i].i});KosarFrissit()">
                         Vásárlás
@@ -28,7 +28,7 @@ if(termekekList){
 
 let cssFix = document.getElementById("cssFix");
 
-setInterval(() => {
+
     let tema = localStorage.getItem("tema");
     if(tema){
         if(tema==="vilagos"){
@@ -44,8 +44,7 @@ setInterval(() => {
             }
         }
     }
-}, 1000);
-
+    
 function termekVasarol(id, i) {
     let kosar = localStorage.getItem("kosar");
     let termekek = localStorage.getItem("termekek");

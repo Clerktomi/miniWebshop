@@ -1,6 +1,6 @@
 let cssFix = document.getElementById("cssFix");
 
-setInterval(() => {
+
     let tema = localStorage.getItem("tema");
     if(tema){
         if(tema==="vilagos"){
@@ -16,7 +16,6 @@ setInterval(() => {
             }
         }
     }
-}, 1000);
 
 const KosarTermekek = document.getElementById("KosarTermekek");
 const oszfizP = document.getElementById("osszFiz");
@@ -33,9 +32,12 @@ if(kosar){
         let ujSor = `
             <tr>
                     <td>${kosar[i].nev}</td>
-                    <td>${kosar[i].ar}</td>
+                    <td>${Number(kosar[i].ar).toLocaleString('hu-HU')}Ft.</td>
                     <td>${kosar[i].db}</td>
                     <td>${(kosar[i].ar*kosar[i].db).toLocaleString('hu-HU')}Ft.</td>
+                    <td class="p-2">
+                            <button class="btn btn-danger" id="kosar${kosar[i].i}" onclick="KosarTorol(${i})">Törlés</button>
+                    </td>
             </tr>
         `;     
         oszfizet+=kosar[i].ar*kosar[i].db;
@@ -46,4 +48,20 @@ if(kosar){
 } else{
     kosarAlert.textContent = "Jelenleg üres a kosara";
     MainTable.style.display = "none";
+}
+
+function KosarTorol(i){
+    let kosar = localStorage.getItem("kosar");
+
+    if(kosar){
+        // alert(i)
+        kosar = JSON.parse(kosar);
+        kosar.splice(i,1);
+        localStorage.setItem("kosar",JSON.stringify(kosar));
+        location.reload();
+    } else{
+        kosar = [];
+        localStorage.setItem("kosar",JSON.stringify(kosar));
+        location.reload();
+    }
 }

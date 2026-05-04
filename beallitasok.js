@@ -31,7 +31,6 @@ sotetTema.addEventListener("click",function(){
     }
 });
 
-setInterval(() => {
     let tema = localStorage.getItem("tema");
     if(tema){
         if(tema==="vilagos"){
@@ -47,4 +46,3 @@ setInterval(() => {
             }
         }
     }
-}, 1000);
